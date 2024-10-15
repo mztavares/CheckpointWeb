@@ -1,0 +1,90 @@
+.resources-section {
+    padding: 50px 0;
+    background-color: #fff;
+    text-align: center;
+
+    .resources-header {
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+        }
+        p {
+            font-size: 1rem;
+            color: #3a3939;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .resources-buttons {
+        .btn-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 colunas */
+            grid-template-rows: repeat(2, auto); /* 2 linhas */
+            gap: 15px; /* Espaço entre os botões */
+            max-width: 600px;
+            margin: 0 auto; /* Centraliza o grid na tela */
+        }
+
+        .btn {
+            padding: 10px 12px;
+            background-color: transparent;
+            border: none;
+            border-radius: 0.75rem;
+            color: #06356b;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            min-height: 3rem;
+
+            i {
+                font-size: 1.5rem;
+                color: #0055ff;;
+                margin-right: 4px; /* Espaço entre ícone e texto */
+                vertical-align: middle; /* Alinha o ícone verticalmente ao centro do texto */
+            }
+
+            &:hover {
+                background-color:  #06356b23;
+            }
+
+            .active {
+                background-color: $titles-text;
+                color: white;
+
+                i {
+                    color: $color-1;
+                }
+            }
+        }
+    }
+
+    #content {
+        margin-left: 20px;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.5s ease;
+    }
+    #content.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .hidden {
+        display: none;
+    }
+
+    .resources-content {
+        margin-top: 2.5rem;
+        h3 {
+            font-size: 0.9rem;
+        }
+        img {
+            margin-top: 1rem;
+            width: 25%;
+        }
+    }
+}

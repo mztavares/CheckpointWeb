@@ -1,0 +1,74 @@
+.footer-section {
+    background-color: #aeafcab0;
+    color: #08185e;
+    padding: 20px 20px;
+    font-family: "Arial", sans-serif;
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .column {
+            img {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+            .social {
+                margin-top: 20px;
+
+                a {
+                    color: #08185e;
+                    font-size: 1.5rem;
+                    margin-right: 10px;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: #00aaff;
+                    }
+                }
+            }
+            h4 {
+                font-size: 1.2rem;
+                color: #08185e;;
+                margin-bottom: 10px;
+            }
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    margin-bottom: 8px;
+                    a {
+                        color: #1d295f;
+                        text-decoration: none;
+                        font-size: 0.9rem;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Parte inferior do rodapé */
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+
+    p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+}

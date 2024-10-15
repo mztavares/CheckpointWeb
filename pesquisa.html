@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>DesInX</title>
+</head>
+
+<body>
+<header class="header"> 
+<nav class="nav">
+
+    <a href="#" class="nav__logo">
+     <img class="logo" src="./assets/ícones/iconelogo-removebg-preview.png" alt="logo-empresa">
+    </a>
+
+
+    <div class="nav__menu">
+
+    <ul class="nav__list">
+        <li class="nav__item">
+            <a class="nav__link" href="./index.html">
+               <span>Home</span>
+            </a>
+        </li>
+        <li class="nav__item">
+            <a class="nav__link" href="">
+               <span>Pesquisa</span>
+            </a>
+        </li>
+        <li class="nav__item">
+            <a class="nav__link" href="./planos.html">
+                <span>Planos</span>
+            </a>
+        </li>
+     
+       
+    </ul>
+   </div>
+   
+   
+
+   
+   <div class="nav__button">
+    <a class="nav__btn" href="">Login</a>
+    </div>
+
+
+</nav>
+       
+</header>   
+<main>
+    <div class="texto">
+    <section1 id="home">
+        <h2>Bem-vindo à Nossa Pesquisa</h2>
+        <p>Esta pesquisa oferece uma visão abrangente e organizada sobre os diferentes tipos de contratos utilizados em um hospital filantrópico, uma faculdade, um hub de inovação e startups, além de contratos relacionados à saúde, pesquisa, parcerias e imóveis. O objetivo é reunir e sistematizar informações sobre os principais itens e cláusulas presentes nesses contratos, facilitando o entendimento de suas características e exigências, de acordo com o tipo de relacionamento ou serviço prestado.
+
+            A organização dos dados é essencial para garantir que todos os envolvidos — sejam hospitais, startups, instituições acadêmicas ou parceiros tecnológicos — compreendam os direitos, deveres e responsabilidades que cada contrato exige. Além disso, a padronização dessas informações auxilia na transparência, assegura a conformidade legal e previne possíveis litígios.
+            
+            Esse levantamento é especialmente útil para gestores hospitalares, advogados, startups e administradores acadêmicos que precisam navegar por diversos tipos de contratos, cada um com suas particularidades. A organização proposta nesta pesquisa oferece uma visão clara das naturezas jurídicas envolvidas e das cláusulas principais de cada categoria, facilitando a gestão eficiente e a tomada de decisões informadas.</p>
+    </section1>
+
+    <section2 id="sobre">
+        <h2>Sobre a Pesquisa</h2>
+        <h3>Contexto</h3>
+        <p>A pesquisa aborda categorias de contratos como prestação de serviços, parcerias, licenciamento de tecnologia, investimentos, comodato, doações, trabalho temporário, locações, entre outros. Cada uma dessas categorias contém as cláusulas obrigatórias e não obrigatórias, permitindo que o público entenda os elementos fundamentais que devem ser incluídos para garantir a validade e segurança jurídica dos acordos.</p>
+
+        <div class="imagens">
+            <img src="./assets/img/Imagens/pexels-alexander-suhorucov-6457511.jpg" alt="img 1">
+            <img src="./assets/img/Imagens/pexels-sora-shimazaki-5668839.jpg" alt="img 2">
+            <img src="./assets/img/Imagens/pexels-shkrabaanthony-5816298.jpg" alt="img 3">
+        
+        </div>
+
+    </section2>
+    </div>
+
+    <section3 id="pesquisa">
+        <div class="títulointro">
+
+        <h2>Análise de Dados</h2>
+        <p>As análises e comparativos realizados focaram em identificar as quantidades e os diferentes tipos de contratos utilizados nas áreas.</p></div>
+
+        <div class="container mt-5">
+            <h1>Dashboard de Contratos</h1>
+    
+            <h2>Tipos de Contratos Detalhados</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Tipo de Contrato</th>
+                        <th>Natureza</th>
+                        <th>Cláusulas</th>
+                        <th>Total de Contratos</th>
+                    </tr>
+                </thead>
+                <tbody id="contractTableBody">
+                    <!-- Linhas da tabela serão geradas aqui -->
+                </tbody>
+            </table>
+
+        <p>Cada contrato foi agrupado conforme sua natureza (prestação de serviços, parceria, licenciamento, entre outros), permitindo uma visão clara de quantos e quais tipos de contratos são comuns em cada setor.</p>
+            <div class="graficos">
+            <h2>Gráficos</h2>
+            <canvas id="barChart" width="80" height="60"></canvas> 
+            <canvas id="pieChart" width="4" height="3"></canvas> 
+            <canvas id="clauseChart" width="4" height="2"></canvas>
+            <canvas id="categoryDetailChart" width="40" height="20"></canvas>
+            <canvas id="natureTypeChart" width="40" height="20"></canvas>
+            </div>
+        </div>
+    
+        <script>
+            // Dados detalhados para contratos
+            const contractData = [
+                {
+                    category: "Contratos de Prestação de Serviços",
+                    contracts: [
+                        { type: "CPS", nature: "Serviços Médicos", clauses: ["Cláusula de Pagamento", "Cláusula de Prazo"], count: 10 },
+                        { type: "CPS-T", nature: "Serviços Terceirizados", clauses: ["Cláusula de Responsabilidade", "Cláusula de Multa"], count: 5 },
+                        { type: "CPSM", nature: "Serviços Médicos", clauses: ["Cláusula de Sigilo", "Cláusula de Rescisão"], count: 7 },
+                        { type: "CPSE", nature: "Serviços Educacionais", clauses: ["Cláusula de Avaliação", "Cláusula de Término"], count: 3 },
+                        { type: "CPSC", nature: "Serviços de Consultoria", clauses: ["Cláusula de Confidencialidade", "Cláusula de Reporte"], count: 4 },
+                        { type: "CTT", nature: "Serviços Temporários", clauses: ["Cláusula de Duração", "Cláusula de Atribuições"], count: 6 },
+                        { type: "CME", nature: "Manutenção de Equipamentos", clauses: ["Cláusula de Garantia", "Cláusula de Responsabilidade"], count: 2 }
+                    ]
+                },
+                {
+                    category: "Contratos de Parceria e Colaboração",
+                    contracts: [
+                        { type: "CPT", nature: "Parceria com Startups", clauses: ["Cláusula de Inovação", "Cláusula de Participação"], count: 8 },
+                        { type: "CCA-H", nature: "Parceria com Hospital", clauses: ["Cláusula de Compartilhamento", "Cláusula de Contribuição"], count: 5 },
+                        { type: "CPCL", nature: "Parceria com Clínicas", clauses: ["Cláusula de Exclusividade", "Cláusula de Rescisão"], count: 4 },
+                        { type: "CPPC", nature: "Parceria para Pesquisa Clínica", clauses: ["Cláusula de Metodologia", "Cláusula de Financiamento"], count: 6 },
+                        { type: "CPSI", nature: "Parceria com Startups e Inovação", clauses: ["Cláusula de Acompanhamento", "Cláusula de Resultados"], count: 3 },
+                        { type: "CPIE", nature: "Parceria com Instituições de Ensino", clauses: ["Cláusula de Objetivos", "Cláusula de Relatórios"], count: 2 }
+                    ]
+                },
+                {
+                    category: "Contratos de Licenciamento e Propriedade Intelectual",
+                    contracts: [
+                        { type: "CLPI", nature: "Licenciamento de Tecnologia", clauses: ["Cláusula de Uso", "Cláusula de Restrições"], count: 3 },
+                        { type: "CLS", nature: "Licenciamento de Propriedade Intelectual", clauses: ["Cláusula de Transferência", "Cláusula de Validade"], count: 2 }
+                    ]
+                }
+                // Adicione mais categorias conforme necessário
+            ];
+    
+            // Gerar tabela de contratos detalhados
+            const contractTableBody = document.getElementById("contractTableBody");
+    
+            contractData.forEach(category => {
+                category.contracts.forEach(contract => {
+                    const row = `<tr>
+                                    <td>${category.category}</td>
+                                    <td>${contract.type}</td>
+                                    <td>${contract.nature}</td>
+                                    <td>${contract.clauses.join(", ")}</td>
+                                    <td>${contract.count}</td>
+                                </tr>`;
+                    contractTableBody.innerHTML += row;
+                });
+            });
+    
+            // Gráfico de barras de tipos de contratos
+            const barChartCtx = document.getElementById("barChart").getContext("2d");
+            const barChart = new Chart(barChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: contractData.flatMap(c => c.contracts.map(contract => contract.type)),
+                    datasets: [{
+                        label: 'Total de Contratos por Tipo',
+                        data: contractData.flatMap(c => c.contracts.map(contract => contract.count)),
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+    
+            // Gráfico de pizza de categorias
+            const pieChartCtx = document.getElementById("pieChart").getContext("2d");
+            const pieChart = new Chart(pieChartCtx, {
+                type: 'pie',
+                data: {
+                    labels: contractData.map(c => c.category),
+                    datasets: [{
+                        label: 'Total de Contratos por Categoria',
+                        data: contractData.map(c => c.contracts.reduce((sum, contract) => sum + contract.count, 0)),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+    
+            // Gráfico de cláusulas relacionado aos tipos de contratos
+            const clauseChartCtx = document.getElementById("clauseChart").getContext("2d");
+            
+            // Contagem de cláusulas por tipo de contrato
+            const clauseCounts = {};
+            
+            contractData.forEach(category => {
+                category.contracts.forEach(contract => {
+                    contract.clauses.forEach(clause => {
+                        if (!clauseCounts[clause]) {
+                            clauseCounts[clause] = { count: 0, types: new Set() };
+                        }
+                        clauseCounts[clause].count += contract.count;
+                        clauseCounts[clause].types.add(contract.type);
+                    });
+                });
+            });
+    
+            const uniqueClauses = Object.keys(clauseCounts);
+            const counts = uniqueClauses.map(clause => clauseCounts[clause].count);
+            
+            const clauseChart = new Chart(clauseChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: uniqueClauses,
+                    datasets: [{
+                        label: 'Total de Cláusulas Relacionadas a Contratos',
+                        data: counts,
+                        backgroundColor: 'rgba(255, 206, 86, 0.5)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+    
+            // Gráfico detalhado por categoria
+            const categoryDetailChartCtx = document.getElementById("categoryDetailChart").getContext("2d");
+            const categoryDetailChart = new Chart(categoryDetailChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: contractData.map(c => c.category),
+                    datasets: [{
+                        label: 'Total de Contratos por Categoria',
+                        data: contractData.map(c => c.contracts.reduce((sum, contract) => sum + contract.count, 0)),
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+    
+            // Gráfico comparativo de contratos por tipo de natureza e categoria
+            const natureTypeChartCtx = document.getElementById("natureTypeChart").getContext("2d");
+            
+            // Preparando dados para o gráfico comparativo
+            const natureCounts = {};
+            const categoryCounts = {};
+    
+            contractData.forEach(category => {
+                category.contracts.forEach(contract => {
+                    // Contagem por natureza
+                    if (!natureCounts[contract.nature]) {
+                        natureCounts[contract.nature] = 0;
+                    }
+                    natureCounts[contract.nature] += contract.count;
+    
+                    // Contagem por categoria
+                    if (!categoryCounts[category.category]) {
+                        categoryCounts[category.category] = 0;
+                    }
+                    categoryCounts[category.category] += contract.count;
+                });
+            });
+    
+            const natureLabels = Object.keys(natureCounts);
+            const natureData = Object.values(natureCounts);
+            const categoryLabels = Object.keys(categoryCounts);
+            const categoryData = Object.values(categoryCounts);
+    
+            const natureTypeChart = new Chart(natureTypeChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: [...natureLabels, ...categoryLabels],
+                    datasets: [
+                        {
+                            label: 'Total de Contratos por Natureza',
+                            data: natureData,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1,
+                        },
+                        {
+                            label: 'Total de Contratos por Categoria',
+                            data: categoryData,
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1,
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+        <h3>Aprendizados</h3>
+
+        <p>A comparação entre eles revelou similaridades em cláusulas obrigatórias e não obrigatórias, destacando as especificidades de cada tipo de contrato, bem como suas finalidades dentro de diferentes contextos operacionais.</p>
+
+        <h2>A análise dos dados permite identificar tendências e impactar positivamente as decisões.</h2>
+
+        <p> A pesquisa realizada destacou a importância de organizar e analisar contratos de maneira estruturada, identificando tanto suas similaridades quanto as particularidades que cada um apresenta. O aprendizado principal envolve a compreensão das cláusulas essenciais e facultativas, bem como a adaptação de cada contrato às suas respectivas finalidades. Esses resultados podem impactar positivamente a tomada de decisões, otimizando processos jurídicos, administrativos e operacionais em hospitais, faculdades e hubs de inovação, promovendo maior eficiência e clareza na execução de parcerias e serviços.</p>
+
+        <a href="artigo.html">Leia mais sobre o assunto aqui</a>
+    </section3>
+
+    <section id="comentarios">
+        <h2>Comentários</h2>
+        <textarea placeholder="Deixe seu comentário aqui..."></textarea>
+        <button>Enviar</button>
+    </section>
+
+
+
+    <footer class="footer-section">
+        <div class="content">
+            <!-- Coluna 1: Logo e Informações de Endereço -->
+            <div class="column">
+                <img src="./assets/ícones/iconelogo-removebg-preview.png" alt="Logo DesInX" class="logo">
+                <p>DesInX Tecnologia S/A</p>
+                <p>Rua Santa Cruz, Nº 217, sala 174 – Vila Mariana – São Paulo – CEP 04202000</p>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-whatsapp'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-youtube'></i></a>
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                </div>
+            </div>
+    
+            <!-- Coluna 2: A Desinx -->
+            <div class="column">
+                <h4>A DesInX</h4>
+                <ul>
+                    <li><a href="#">Quem somos</a></li>
+                    <li><a href="#">Manifesto</a></li>
+                    <li><a href="#">Verticais de atuação</a></li>
+                    <li><a href="#">Trabalhe conosco</a></li>
+                </ul>
+            </div>
+    
+            <!-- Coluna 3: Soluções -->
+            <div class="column">
+                <h4>Soluções</h4>
+                <ul>
+                    <li><a href="#">Gestão de contratos</a></li>
+                    <li><a href="#">Assinatura digital</a></li>
+                    <li><a href="#">Ver todos os planos</a></li>
+                </ul>
+            </div>
+    
+            <!-- Coluna 4: Conteúdo -->
+            <div class="column">
+                <h4>Conteúdo</h4>
+                <ul>
+                    <li><a href="#">Como funciona</a></li>
+                    <li><a href="#">Jeito Antigo x Jeito Novo</a></li>
+                    <li><a href="#">Tecnologia e segurança</a></li>
+                    <li><a href="#">Cases de Sucesso</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+    
+            <!-- Coluna 5: Desenvolvedores -->
+            <div class="column">
+                <h4>Desenvolvedores</h4>
+                <ul>
+                    <li><a href="#">Documentação API</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>Trabalhamos para facilitar a gestão de contratos dos nossos clientes de maneira 100% digital, segura e eficiente.</p>
+            
+
+            <p>DesInX todos os direitos reservados | © 2024</p>
+            
+        </div>
+    </footer>
+
+
+</main>
+
+
+</body>
+</html>

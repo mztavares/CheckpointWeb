@@ -1,0 +1,44 @@
+.partners {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #fff;
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 40px;
+    }
+
+    .swiper-container {
+        .swiper-wrapper {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            position: relative;
+
+            .slide {
+                position: relative;
+                text-align: justify;
+                flex-grow: 3;
+                max-width: 20px;
+                display: block;
+                justify-content: space-between;
+                align-items: normal;
+                img {
+                    max-width: 150px;
+                    padding: 10px;
+                    filter: grayscale(100%);
+                    transition: filter 0.3s ease;
+
+                    &:hover {
+                        filter: grayscale(0%);
+                    }
+                }
+            }
+        }
+    }
+}
