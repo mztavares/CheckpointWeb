@@ -1,0 +1,135 @@
+
+
+$breakpoint-mobile: 450px;
+$breakpoint-tablet: 1000px;
+$breakpoint-desktop: 1500px;
+
+// Mixin para media queries
+@mixin respond-to($breakpoint) {
+    @if $breakpoint ==mobile {
+        @media (max-width: $breakpoint-mobile) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==tablet {
+        @media (max-width: $breakpoint-tablet) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==desktop {
+        @media (max-width: $breakpoint-desktop) {
+            @content;
+        }
+    }
+}
+
+
+$header-height: 4.1rem;
+$body-color: rgba(255, 251, 254, 0.9);
+$titles-text: #0d0440;
+$color-1: #346bf7;
+$color-primary-a20: #a482d9;
+$color-primary-a25: #8b64ce;
+$color-primary-a30: #7146c4;
+$color-primary-a35: #5427b9;
+$color-primary-a40: #49239c;
+$color-primary-a45: #3f1f81;
+$color-primary-a50: #341b66;
+$color-primary-a55: #29174c;
+$color-primary-a60: #1f1334;
+$color-primary-a65: #150b1e;
+$color-primary-a100: #000000;
+
+$body-font: "Poppins", sans-serif;
+$biggest-font-size: 2.25rem;
+$h1-font-size: 1.5rem;
+$h2-font-size: 1.25rem;
+$h3-font-size: 1rem;
+$normal-font-size: 0.938rem;
+$small-font-size: 0.813rem;
+$smaller-font-size: 0.75rem;
+
+$font-medium: 500;
+$font-semi-bold: 600;
+
+$z-tooltip: 10;
+$z-fixed: 100;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: $body-font;
+    font-size: $normal-font-size;
+    background-color: $body-color;
+    color: $titles-text;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.container {
+
+    width: 100%;
+    padding: 20px;
+
+    max-width: 1384px;
+    margin-left: 0.7rem;
+    margin-right: 0.7rem;
+
+    @include respond-to(mobile) {
+        background-color: lighten($primary-color, 10%);
+        padding: 15px;
+    }
+
+    @include respond-to(tablet) {
+        background-color: darken($primary-color, 5%);
+        padding: 25px;
+    }
+
+    @include respond-to(desktop) {
+        background-color: $primary-color;
+        padding: 30px;
+    }
+}
+
+h1 {
+    font-size: 2rem;
+
+    @include respond-to(mobile) {
+        font-size: 1.5rem;
+    }
+
+    @include respond-to(desktop) {
+        font-size: 2.5rem;
+    }
+}
+
+p {
+    font-size: 1rem;
+
+    @include respond-to(mobile) {
+        font-size: 0.875rem;
+    }
+}
+
+.grid {
+    display: grid;
+}
+
+.main {
+    overflow: hidden;
+}
+
+
+
+
